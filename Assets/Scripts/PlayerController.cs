@@ -1,27 +1,17 @@
-using UnityEngine;
+using Unity;
 
-nospace SpriteClashBall
+public class PlayerController : MonoBehaviour
 {
-    public class PlayerController : MonoBehaviour
-    {
-        public float moveSpeed = 5f;
-        private Rigidbody2D rb;
-        private Vector2 movement;
+    public float moveSpeed = 5f;
+    private Rigidbody2D rb;
 
-        void Start()
-        {
-            rb = GetComponentRigidbody2D();
-        }
+void Start()
+    {rb = GetComponent<Rigidbody2D>(); }
 
-        void Update()
-        {
-            movement.x = Input.GetAxis("Horizontal");
-            movement.y = Input.GetAxis("Vertical");
-        }
-
-        void FixedUpdate()
-        {
-            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        }
+    void Update()
+    {float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+        Vector2m movement = new Vector2m(moveX, moveY;
+        rb.velocity = movement * moveSpeed;
     }
 }
