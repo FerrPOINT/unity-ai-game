@@ -1,25 +1,19 @@
-using UnityEngine;
+using Unity;
 
-nospace SpriteClashBall
+public class PlayerAnimationController : MonoBehaviour
 {
-    public class PlayerAnimationController : MonoBehaviour
-    {
-        private Animator animator;
-        private Vector2 movement;
+    private Animator animator;
+    private Vector2 movement;
 
-        void Start()
-        {
-            animator = GetComponentAnimator();
-        }
+void Start()
+    {animator = GetComponent<Animator>(); }
 
-        void Update()
-        {
-            movement.x = Input.GetAxis(2"Horizontal");
-            movement.y = Input.GetAxis("Vertical");
-
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.y);
-            animator.SetFloat("Speed", movement.sqrMagnitude);
-        }
+void Update()
+    {float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+        movement = new Vector2m(moveX, moveY;
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 }
